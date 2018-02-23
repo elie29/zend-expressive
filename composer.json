@@ -1,0 +1,33 @@
+{
+    "name": "zend expressive",
+    "description": "A zend expressive demo project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Elie NEHME",
+            "email": "elie29@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1",
+        "http-interop/http-middleware": "^0.4",
+        "zendframework/zend-expressive": "^2.0",
+        "zendframework/zend-expressive-fastroute": "^2.0",
+        "middlewares/whoops": "^0.4",
+        "php-di/php-di": "^6.0",
+        "zendframework/zend-expressive-helpers": "^4.2",
+        "symfony/var-dumper": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "scripts": {
+        "serve": "php -S localhost:8000 -d display_errors=1 -t public"
+    },
+    "config": {
+        "process-timeout": 9000
+    }
+}
