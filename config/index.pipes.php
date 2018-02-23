@@ -2,6 +2,7 @@
 
 use App\Middleware\Commun\RouteNotFoundMiddleware;
 use App\Middleware\Commun\SessionMiddleware;
+use App\Middleware\Outils\OutilsMiddleware;
 use Zend\Expressive\Helper\BodyParams\BodyParamsMiddleware;
 
 /* @var \Zend\Expressive\Application $app */
@@ -17,7 +18,7 @@ $app->pipe(SessionMiddleware::class);
 $app->pipe(BodyParamsMiddleware::class);
 
 // Modules middleware
-// $app->pipe('/path', actionClassName);
+$app->pipe('/outils', OutilsMiddleware::class);
 
 // At this point, dispatch the resolved route if found
 $app->pipeDispatchMiddleware();
