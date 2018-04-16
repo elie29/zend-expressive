@@ -1,9 +1,9 @@
 <?php
 
 /* @var \Zend\Expressive\Application $app */
-$app->pipeDispatchMiddleware();
+$app->pipeRoutingMiddleware();
 
 // One Middleware per action & per type
 
 // At the end
-$app->pipeRoutingMiddleware();
+$app->pipeDispatchMiddleware();

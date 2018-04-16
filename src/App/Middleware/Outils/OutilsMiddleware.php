@@ -15,7 +15,8 @@ class OutilsMiddleware implements MiddlewareInterface
      */
     private $container;
 
-    public function __construct(FactoryInterface $container) {
+    public function __construct(FactoryInterface $container)
+    {
         $this->container = $container;
     }
 
