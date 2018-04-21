@@ -1,6 +1,7 @@
 <?php
 
 use App\Middleware\Outils\Ping\PingAction;
+use App\Middleware\Outils\Sum\SumAction;
 use App\Middleware\Outils\Uppercase\UppercaseAction;
 
 /* @var \Zend\Expressive\Application $app */
@@ -12,6 +13,8 @@ $app->get('/ping', PingAction::class, 'ping.route');
 // The first route is not really needed and source of error
 $app->get('/uppercase', UppercaseAction::class, 'uppercase.empty.route');
 $app->get('/uppercase/{name}', UppercaseAction::class, 'uppercase.route');
+
+$app->post('/sum', SumAction::class, 'sum.post.route');
 
 // At the end
 $app->pipeDispatchMiddleware();
