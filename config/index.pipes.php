@@ -3,10 +3,13 @@
 use App\Middleware\Commun\RouteNotFoundMiddleware;
 use App\Middleware\Commun\SessionMiddleware;
 use App\Middleware\Outils\OutilsMiddleware;
+use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
 use Zend\Expressive\Helper\BodyParams\BodyParamsMiddleware;
 
 /* @var \Zend\Expressive\Application $app */
-
+if (DEV_MODE) {
+    $app->pipe(PhpDebugBarMiddleware::class);
+}
 // Register the routing middleware in the middleware pipeline
 $app->pipeRoutingMiddleware();
 

@@ -17,7 +17,8 @@
         "middlewares/whoops": "^0.4",
         "php-di/php-di": "^6.0",
         "zendframework/zend-expressive-helpers": "^4.2",
-        "symfony/var-dumper": "^4.0"
+        "symfony/var-dumper": "^4.0",
+        "php-middleware/php-debug-bar": "^1.4"
     },
     "autoload": {
         "psr-4": {

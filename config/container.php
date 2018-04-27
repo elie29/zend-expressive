@@ -1,6 +1,10 @@
 <?php
 
+use DebugBar\DebugBar;
+use DebugBar\StandardDebugBar;
 use Middlewares\Whoops;
+use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
+use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddlewareFactory;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Router\FastRouteRouterFactory;
@@ -22,4 +26,7 @@ return [
     RouterInterface::class => factory(FastRouteRouterFactory::class),
     Application::class => factory(ApplicationFactory::class),
     'HandleExceptionMiddleware' => get(Whoops::class),
+    // Php debug bar
+    DebugBar::class => get(StandardDebugBar::class),
+    PhpDebugBarMiddleware::class => factory(PhpDebugBarMiddlewareFactory::class)
 ];

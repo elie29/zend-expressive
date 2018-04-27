@@ -1,6 +1,7 @@
 <?php
 namespace App\Middleware\Outils\Uppercase;
 
+use DebugBar\DebugBar;
 use Interop\Http\ServerMiddleware\DelegateInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -12,6 +13,9 @@ class UppercaseAction implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
+        $debug = $this->container->get(DebugBar::class);
+        $debug['messages']->addMessage($request);
+
         $name = $request->getAttribute('name');
         // Never possible if route is defined correctly
         if (! $name) {
