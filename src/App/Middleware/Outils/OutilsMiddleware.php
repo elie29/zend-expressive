@@ -1,33 +1,19 @@
 <?php
 namespace App\Middleware\Outils;
 
-use DI\FactoryInterface;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Zend\Expressive\Application;
+use App\Middleware\Commun\AbstractMiddleware;
+use App\Middleware\Commun\AbstractModuleMiddleware;
 
-class OutilsMiddleware implements MiddlewareInterface
+class OutilsMiddleware extends AbstractModuleMiddleware
 {
 
     /**
-     * @param FactoryInterface in order to use make and not get.
+     * {@inheritDoc}
+     * @see \App\Middleware\Commun\AbstractMiddleware::getConfig()
      */
-    private $container;
-
-    public function __construct(FactoryInterface $container)
+    protected function getConfig(): string
     {
-        $this->container = $container;
-    }
-
-    public function process(ServerRequestInterface $request, DelegateInterface $delegate)
-    {
-        /* @var \Zend\Expressive\Application $app */
-        $app = $this->container->make(Application::class);
-
-        require 'config/outils.routes.php';
-
-        return $app->process($request, $delegate);
+        return 'config/outils.routes.php';
     }
 }
 
